@@ -116,5 +116,16 @@ public class BaseDatos {
         }
         return rs;
     }
+    
+    public int selectMAX() throws SQLException{
+        Statement stmt = conex.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT MAX(NPedido) Numero FROM PEDIDOS");
+        
+        int posicion = 0;
+        while (rs.next()){
+            posicion = rs.getInt("Numero") + 1;
+        }
+        return posicion;
+    }
 
 }

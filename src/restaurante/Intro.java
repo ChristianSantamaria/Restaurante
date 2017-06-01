@@ -6,21 +6,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
 
-/**
- *
- * @author kevin
- */
-public class Intro extends javax.swing.JFrame {
 
+public class Intro extends javax.swing.JFrame {
     
     public static BaseDatos conexion = new BaseDatos();
+    public static Principal principal = new Principal(); 
+    
     
     public Intro() {
         initComponents();
     }
-    
-    public static Principal principal = new Principal(); 
-
+  
     public Principal getPrincipal() {
         return principal;
     }

@@ -301,6 +301,9 @@ public class Postre extends javax.swing.JInternalFrame {
                     break;
             }
             Principal.nuevoPedido.setPrecioPedido(Principal.nuevoPedido.getPrecioPedido() + c.getPrecio());
+            try {
+                Principal.nuevoPedido.setN_pedido(Intro.conexion.selectMAX());
+            } catch (SQLException ex) {}
         }
         Principal.TotalPedidos.add(Principal.nuevoPedido);
         Principal.escribirPedidos();
