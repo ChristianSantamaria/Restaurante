@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import restaurante.Comida;
 
 public class Pedido {
-    int n_plato;
+    int n_pedido;
     int n_mesa;
     ArrayList<Comida> primerPlato = new ArrayList<Comida>();
     ArrayList<Comida> segundoPlato = new ArrayList<Comida>();
@@ -42,12 +42,12 @@ public class Pedido {
     }  
 
     ///////////////////////////////////////////////Setters y Getters////////////////////////////////////////////////////////
-    public int getN_plato() {    
-        return n_plato;
+    public int getN_pedido() {    
+        return n_pedido;
     }
     
-    public void setN_plato(int n_plato) {
-        this.n_plato = n_plato;
+    public void setN_pedido(int n_pedido) {
+        this.n_pedido = n_pedido;
     }
 
     public int getN_mesa() {

@@ -24,20 +24,21 @@ public class BaseDatos {
 
     }
 
-    public void crearTabla(){
+    public void crearTabla() {
         Statement stmt = null;
         try {
             stmt = conex.createStatement();
-        } catch (SQLException ex) {}
+        } catch (SQLException ex) {
+        }
         try {
             stmt.executeQuery("CREATE TABLE PEDIDOS "
-                + "(NPedido integer PRIMARY KEY, "
-                + "NMesa integer, "
-                + "Precio integer)");
+                    + "(NPedido integer PRIMARY KEY, "
+                    + "NMesa integer, "
+                    + "Precio integer)");
         } catch (SQLException ex) {
             System.out.println("Tabla PEDIDOS ya creada");
         }
-        
+
         try {
             stmt.executeQuery("CREATE TABLE PP (NPedido integer, NombrePlato String, Cantidad integer)");
         } catch (SQLException ex) {
@@ -61,18 +62,19 @@ public class BaseDatos {
     }
 
     public void insertarPlatos(String Tabla, int NPedido, String NombrePlato, int Cantidad) throws SQLException {
-        
+
         String Qry = "";
-        
-        if("PP".equals(Tabla))
+
+        if ("PP".equals(Tabla)) {
             Qry = "INSERT INTO PP (NPedido, NombrePlato, Cantidad) VALUES (?,?,?)";
-        else if("SP".equals(Tabla))
+        } else if ("SP".equals(Tabla)) {
             Qry = "INSERT INTO SP (NPedido, NombrePlato, Cantidad) VALUES (?,?,?)";
-        else if("BEBIDA".equals(Tabla))
+        } else if ("BEBIDA".equals(Tabla)) {
             Qry = "INSERT INTO BEBIDA (NPedido, NombrePlato, Cantidad) VALUES (?,?,?)";
-        else
+        } else {
             Qry = "INSERT INTO POSTRE (NPedido, NombrePlato, Cantidad) VALUES (?,?,?)";
-        
+        }
+
         PreparedStatement rs = conex.prepareStatement(Qry);
         rs.setInt(1, NPedido);
         rs.setString(2, NombrePlato);
@@ -91,7 +93,7 @@ public class BaseDatos {
 
     public ResultSet selectPedido() throws SQLException {
         Statement stmt = conex.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT 'NPedido' FROM PEDIDOS");
+        ResultSet rs = stmt.executeQuery("SELECT 'NPedido', 'NMesa', 'Precio' FROM PEDIDOS");
         return rs;
     }
 

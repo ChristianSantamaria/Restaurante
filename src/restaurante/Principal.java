@@ -215,27 +215,23 @@ public class Principal extends javax.swing.JInternalFrame {
         }
     }
 
-    public static void escribirBase() throws SQLException {
-        BaseDatos datos = new BaseDatos();
-
-        for (Pedido i : TotalPedidos) {
-            datos.insertarPedidos(i.getN_plato(), i.getN_mesa(), i.getPrecioPedido());
-            for (Comida j : i.primerPlato) {
-                datos.insertarPlatos("PP", i.getN_plato(), j.getNombre(), j.getCantidad());
-            }
-            for (Comida j : i.segundoPlato) {
-                datos.insertarPlatos("PS", i.getN_plato(), j.getNombre(), j.getCantidad());
-            }
-            for (Comida j : i.postre) {
-                datos.insertarPlatos("POSTRE", i.getN_plato(), j.getNombre(), j.getCantidad());
-            }
-            for (Comida j : i.bebida) {
-                datos.insertarPlatos("BEBIDA", i.getN_plato(), j.getNombre(), j.getCantidad());
-            }
+    public static void escribirBase(Pedido nuevoPed) throws SQLException {
+        
+        Intro.conexion.insertarPedidos(nuevoPed.getN_pedido(), nuevoPed.getN_mesa(), nuevoPed.getPrecioPedido());
+        for (Comida j : nuevoPed.primerPlato) {
+            Intro.conexion.insertarPlatos("PP", nuevoPed.getN_pedido(), j.getNombre(), j.getCantidad());
         }
+        for (Comida j : nuevoPed.segundoPlato) {
+            Intro.conexion.insertarPlatos("SP", nuevoPed.getN_pedido(), j.getNombre(), j.getCantidad());
+        }
+        for (Comida j : nuevoPed.postre) {
+            Intro.conexion.insertarPlatos("POSTRE", nuevoPed.getN_pedido(), j.getNombre(), j.getCantidad());
+        }
+        for (Comida j : nuevoPed.bebida) {
+            Intro.conexion.insertarPlatos("BEBIDA", nuevoPed.getN_pedido(), j.getNombre(), j.getCantidad());
+        }
+        
     }
-    
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -247,7 +243,6 @@ public class Principal extends javax.swing.JInternalFrame {
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         PanelPrimero = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         PanelSegundo = new javax.swing.JPanel();
         PanelTercero = new javax.swing.JPanel();
         PanelCuarto = new javax.swing.JPanel();
@@ -317,17 +312,15 @@ public class Principal extends javax.swing.JInternalFrame {
             .addGroup(PanelLayout.createSequentialGroup()
                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelLayout.createSequentialGroup()
-                        .addGap(570, 570, 570)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(200, 200, 200)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelLayout.createSequentialGroup()
                         .addGap(90, 90, 90)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanelLayout.createSequentialGroup()
-                        .addGap(340, 340, 340)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanelLayout.createSequentialGroup()
-                        .addGap(200, 200, 200)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(186, Short.MAX_VALUE))
         );
         PanelLayout.setVerticalGroup(
@@ -343,38 +336,23 @@ public class Principal extends javax.swing.JInternalFrame {
                         .addGap(30, 30, 30)
                         .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton2)
-                            .addGroup(PanelLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton7)))))
-                .addGap(66, 66, 66))
+                            .addComponent(jButton7))))
+                .addGap(84, 84, 84))
         );
 
         getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         PanelPrimero.setBackground(new java.awt.Color(51, 51, 51));
 
-        jButton1.setText("Crear BD");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout PanelPrimeroLayout = new javax.swing.GroupLayout(PanelPrimero);
         PanelPrimero.setLayout(PanelPrimeroLayout);
         PanelPrimeroLayout.setHorizontalGroup(
             PanelPrimeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelPrimeroLayout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(669, Short.MAX_VALUE))
+            .addGap(0, 900, Short.MAX_VALUE)
         );
         PanelPrimeroLayout.setVerticalGroup(
             PanelPrimeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPrimeroLayout.createSequentialGroup()
-                .addContainerGap(537, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(218, 218, 218))
+            .addGap(0, 780, Short.MAX_VALUE)
         );
 
         getContentPane().add(PanelPrimero, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -5, 900, 780));
@@ -481,14 +459,6 @@ public class Principal extends javax.swing.JInternalFrame {
         ((javax.swing.plaf.basic.BasicInternalFrameUI) p1.getUI()).setNorthPane(null);
         p1.show();    }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            BaseDatos conexion = new BaseDatos("jdbc:sqlite:/home/local/DANIELCASTELAO/csantamariacameselle/Escritorio/BasedeDatos.db");
-        } catch (SQLException ex) {
-            System.out.println("Error BD");
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JDesktopPane Panel;
@@ -498,7 +468,6 @@ public class Principal extends javax.swing.JInternalFrame {
     public javax.swing.JPanel PanelSegundo;
     public javax.swing.JPanel PanelSexto;
     public javax.swing.JPanel PanelTercero;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;

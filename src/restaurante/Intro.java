@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package restaurante;
 
 import java.awt.Component;
@@ -182,6 +177,7 @@ public class Intro extends javax.swing.JFrame {
                 new Intro().setVisible(true);
                 try {
                     conexion = new BaseDatos("jdbc:sqlite:/home/local/DANIELCASTELAO/csantamariacameselle/Escritorio/BasedeDatos.db");
+                    conexion.crearTabla();
                 } catch (SQLException ex) {}
             }
         });

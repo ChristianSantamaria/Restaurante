@@ -307,7 +307,7 @@ public class Postre extends javax.swing.JInternalFrame {
 
         /////////////
         try {
-            Principal.escribirBase();
+            Principal.escribirBase(Principal.nuevoPedido);
         } catch (SQLException ex) {}
         /////////////
         Intro.principal.PanelPrimero.removeAll();
