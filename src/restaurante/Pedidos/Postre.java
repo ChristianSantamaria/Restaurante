@@ -303,7 +303,8 @@ public class Postre extends javax.swing.JInternalFrame {
             Principal.nuevoPedido.setPrecioPedido(Principal.nuevoPedido.getPrecioPedido() + c.getPrecio());
             try {
                 Principal.nuevoPedido.setN_pedido(Intro.conexion.selectMAX());
-            } catch (SQLException ex) {}
+            } catch (SQLException ex) {
+            }
         }
         Principal.TotalPedidos.add(Principal.nuevoPedido);
         Principal.escribirPedidos();
@@ -311,7 +312,8 @@ public class Postre extends javax.swing.JInternalFrame {
         /////////////
         try {
             Principal.escribirBase(Principal.nuevoPedido);
-        } catch (SQLException ex) {}
+        } catch (SQLException ex) {
+        }
         /////////////
         Intro.principal.PanelPrimero.removeAll();
         Intro.principal.PanelSegundo.removeAll();
