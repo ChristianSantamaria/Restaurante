@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import restaurante.Pedidos.ListaDeMesas;
 import restaurante.Pedidos.PrimerPlato;
 import restaurante.Varios.VistaMesas;
+import restaurante.Varios.VistaPedidos;
 
 public class Principal extends javax.swing.JInternalFrame {
 
@@ -255,10 +256,12 @@ public class Principal extends javax.swing.JInternalFrame {
 
         Panel.setBackground(new java.awt.Color(51, 51, 51));
         Panel.setOpaque(false);
+        Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Script MT Bold", 3, 60)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplicacion/Imagenes/Titulo.png"))); // NOI18N
+        Panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 480, 110));
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplicacion/Imagenes/FontAwesome_f0f5(0)_200.png"))); // NOI18N
@@ -274,6 +277,7 @@ public class Principal extends javax.swing.JInternalFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        Panel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 180, 180, -1));
 
         jButton7.setBackground(new java.awt.Color(0, 0, 0));
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplicacion/Imagenes/FontAwesome_f0ea(0)_200.png"))); // NOI18N
@@ -289,6 +293,7 @@ public class Principal extends javax.swing.JInternalFrame {
                 jButton7ActionPerformed(evt);
             }
         });
+        Panel.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 180, -1));
 
         jButton8.setBackground(new java.awt.Color(0, 0, 0));
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplicacion/Imagenes/Home.png"))); // NOI18N
@@ -299,46 +304,12 @@ public class Principal extends javax.swing.JInternalFrame {
         jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton8.setIconTextGap(-3);
         jButton8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        Panel.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Panel.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Panel.setLayer(jButton7, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Panel.setLayer(jButton8, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout PanelLayout = new javax.swing.GroupLayout(Panel);
-        Panel.setLayout(PanelLayout);
-        PanelLayout.setHorizontalGroup(
-            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelLayout.createSequentialGroup()
-                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelLayout.createSequentialGroup()
-                        .addGap(200, 200, 200)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanelLayout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(186, Short.MAX_VALUE))
-        );
-        PanelLayout.setVerticalGroup(
-            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelLayout.createSequentialGroup()
-                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelLayout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(jButton8))
-                    .addGroup(PanelLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addComponent(jButton7))))
-                .addGap(84, 84, 84))
-        );
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        Panel.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 180, -1));
 
         getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -458,6 +429,18 @@ public class Principal extends javax.swing.JInternalFrame {
         p1.setBorder(null);
         ((javax.swing.plaf.basic.BasicInternalFrameUI) p1.getUI()).setNorthPane(null);
         p1.show();    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        VistaPedidos p1 = new VistaPedidos();
+        Panel.setVisible(false);
+        if (Intro.principal.PanelPrimero.getComponentCount() == 0) {
+            PanelPrimero.add(p1);
+        }
+        PanelPrimero.setVisible(true);
+        p1.setBorder(null);
+        ((javax.swing.plaf.basic.BasicInternalFrameUI) p1.getUI()).setNorthPane(null);
+        p1.show();
+    }//GEN-LAST:event_jButton8ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

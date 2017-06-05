@@ -6,17 +6,21 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
 
-
+/**
+ *
+ * @author kevin
+ */
 public class Intro extends javax.swing.JFrame {
+
     
     public static BaseDatos conexion = new BaseDatos();
-    public static Principal principal = new Principal(); 
-    
     
     public Intro() {
         initComponents();
     }
-  
+    
+    public static Principal principal = new Principal(); 
+
     public Principal getPrincipal() {
         return principal;
     }
@@ -172,7 +176,7 @@ public class Intro extends javax.swing.JFrame {
             public void run() {
                 new Intro().setVisible(true);
                 try {
-                    conexion = new BaseDatos("jdbc:sqlite:/home/local/DANIELCASTELAO/csantamariacameselle/Escritorio/BasedeDatos.db");
+                    conexion = new BaseDatos("jdbc:sqlite:/home/local/DANIELCASTELAO/klemavilanova/Escritorio/Restaurante.db");
                     conexion.crearTabla();
                 } catch (SQLException ex) {}
             }
