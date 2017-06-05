@@ -93,38 +93,38 @@ public class BaseDatos {
 
     public ResultSet selectPedido() throws SQLException {
         Statement stmt = conex.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT 'NPedido', 'NMesa', 'Precio' FROM PEDIDOS");
+        ResultSet rs = stmt.executeQuery("SELECT NPedido, NMesa, Precio FROM PEDIDOS");
         return rs;
     }
 
-    public ResultSet selectPlatos(int tabla) throws SQLException {
+    public ResultSet selectPlatos(int tabla, int numP) throws SQLException {
         Statement stmt = conex.createStatement();
         ResultSet rs = null;
         switch (tabla) {
             case 1:
-                rs = stmt.executeQuery("SELECT 'NPlato', 'Cantidad' FROM PP");
+                rs = stmt.executeQuery("SELECT NPedido, Cantidad FROM PP WHERE NPedido = " + numP);
                 break;
             case 2:
-                rs = stmt.executeQuery("SELECT 'NPlato', 'Cantidad' FROM SP");
+                rs = stmt.executeQuery("SELECT NPedido, Cantidad FROM SP WHERE NPedido = " + numP);
                 break;
             case 3:
-                rs = stmt.executeQuery("SELECT 'NPlato', 'Cantidad' FROM BEBIDA");
+                rs = stmt.executeQuery("SELECT NPedido, Cantidad FROM BEBIDA WHERE NPedido = " + numP);
                 break;
             case 4:
-                rs = stmt.executeQuery("SELECT 'NPlato', 'Cantidad' FROM POSTRE");
+                rs = stmt.executeQuery("SELECT NPedido, Cantidad FROM POSTRE WHERE NPedido = " + numP);
                 break;
         }
         return rs;
     }
 
-    public int selectMAX() throws SQLException{
+    public int selectMAX() throws SQLException {
         Statement stmt = conex.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT MAX(NPedido) Numero FROM PEDIDOS");
-        
+
         int posicion = 0;
-        while (rs.next()){
+        while (rs.next()) {
             posicion = rs.getInt("Numero") + 1;
-}
+        }
         return posicion;
     }
 
