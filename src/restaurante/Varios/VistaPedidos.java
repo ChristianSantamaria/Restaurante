@@ -18,9 +18,9 @@ import static restaurante.Intro.conexion;
  */
 public class VistaPedidos extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form VistaPedidos
-     */
+    DefaultTableModel model = null;
+    DefaultTableModel model2 = null;
+
     public VistaPedidos() {
         initComponents();
         try {
@@ -30,10 +30,12 @@ public class VistaPedidos extends javax.swing.JInternalFrame {
         }
     }
 
-    public static void cargarTabla() throws SQLException{
+    public void cargarTabla() throws SQLException {
+        model = (DefaultTableModel) jTable1.getModel();
+        
         ResultSet rs = conexion.selectPedido();
-        while(rs.next()){
-            model.addRow(new Object[]{rs.getInt("'NPedido'"),rs.getInt("'NMesa'"),rs.getFloat("'Precio'")});
+        while (rs.next()) {
+            model.addRow(new Object[]{rs.getInt("NPedido"), rs.getInt("NMesa"), rs.getFloat("Precio")});
         }
     }
 
@@ -48,26 +50,25 @@ public class VistaPedidos extends javax.swing.JInternalFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "N Pedido", "N Mesa", "Precio"
+                "NPedido", "NMesa", "Precio"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "N Pedido", "Nombre Plato", "Cantidad"
+                "Nombre Plato", "Cantidad"
             }
         ));
         jScrollPane2.setViewportView(jTable2);
@@ -82,8 +83,8 @@ public class VistaPedidos extends javax.swing.JInternalFrame {
                     .addGap(0, 27, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(30, 30, 30)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 28, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 123, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,12 +101,30 @@ public class VistaPedidos extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int nfila = jTable1.getSelectedRow();
+        model2 = (DefaultTableModel) jTable2.getModel();
+        jTable2.removeAll();
+        ResultSet rs;
+        for (int i = 1; i <= 4; i++) {
+            try {
+                rs = conexion.selectPlatos(i, nfila);
+                while (rs.next()) {
+                    model2.addRow(new Object[]{rs.getString("NombrePlato"), rs.getInt("Cantidad")});
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(VistaPedidos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+
+    }//GEN-LAST:event_jTable1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    static DefaultTableModel model = new DefaultTableModel();
+    private static javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }

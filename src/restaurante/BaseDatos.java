@@ -102,16 +102,16 @@ public class BaseDatos {
         ResultSet rs = null;
         switch (tabla) {
             case 1:
-                rs = stmt.executeQuery("SELECT NPedido, Cantidad FROM PP WHERE NPedido = " + numP);
+                rs = stmt.executeQuery("SELECT NombrePlato, Cantidad FROM PP WHERE NPedido = " + numP);
                 break;
             case 2:
-                rs = stmt.executeQuery("SELECT NPedido, Cantidad FROM SP WHERE NPedido = " + numP);
+                rs = stmt.executeQuery("SELECT NombrePlato, Cantidad FROM SP WHERE NPedido = " + numP);
                 break;
             case 3:
-                rs = stmt.executeQuery("SELECT NPedido, Cantidad FROM BEBIDA WHERE NPedido = " + numP);
+                rs = stmt.executeQuery("SELECT NombrePlato, Cantidad FROM BEBIDA WHERE NPedido = " + numP);
                 break;
             case 4:
-                rs = stmt.executeQuery("SELECT NPedido, Cantidad FROM POSTRE WHERE NPedido = " + numP);
+                rs = stmt.executeQuery("SELECT NombrePlato, Cantidad FROM POSTRE WHERE NPedido = " + numP);
                 break;
         }
         return rs;
