@@ -56,6 +56,7 @@ public class VistaPedidos extends javax.swing.JInternalFrame {
                 "NPedido", "NMesa", "Precio"
             }
         ));
+        jTable1.setAutoscrolls(false);
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
@@ -92,9 +93,9 @@ public class VistaPedidos extends javax.swing.JInternalFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 21, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane2)
+                        .addComponent(jScrollPane1))
                     .addGap(0, 22, Short.MAX_VALUE)))
         );
 
@@ -104,7 +105,7 @@ public class VistaPedidos extends javax.swing.JInternalFrame {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         int nfila = jTable1.getSelectedRow();
         model2 = (DefaultTableModel) jTable2.getModel();
-        jTable2.removeAll();
+        model2.getDataVector().removeAllElements();
         ResultSet rs;
         for (int i = 1; i <= 4; i++) {
             try {
