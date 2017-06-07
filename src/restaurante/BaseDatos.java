@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -34,7 +35,8 @@ public class BaseDatos {
             stmt.executeQuery("CREATE TABLE PEDIDOS "
                     + "(NPedido integer PRIMARY KEY, "
                     + "NMesa integer, "
-                    + "Precio integer)");
+                    + "Precio integer,"
+                    + "Fecha data)");
         } catch (SQLException ex) {
             System.out.println("Tabla PEDIDOS ya creada");
         }
@@ -82,18 +84,19 @@ public class BaseDatos {
         rs.execute();
     }
 
-    public void insertarPedidos(int NPedido, int NMesa, float Precio) throws SQLException {
-        String Qry = "INSERT INTO PEDIDOS (NPedido, NMesa, Precio) VALUES (?,?,?)";
+    public void insertarPedidos(int NPedido, int NMesa, float Precio, Date Fecha) throws SQLException {
+        String Qry = "INSERT INTO PEDIDOS (NPedido, NMesa, Precio, Fecha) VALUES (?,?,?,?)";
         PreparedStatement rs = conex.prepareStatement(Qry);
         rs.setInt(1, NPedido);
         rs.setInt(2, NMesa);
         rs.setFloat(3, Precio);
+        rs.setDate(4, (java.sql.Date) Fecha);
         rs.execute();
     }
 
     public ResultSet selectPedido() throws SQLException {
         Statement stmt = conex.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT NPedido, NMesa, Precio FROM PEDIDOS");
+        ResultSet rs = stmt.executeQuery("SELECT NPedido, NMesa, Precio, Fecha FROM PEDIDOS");
         return rs;
     }
 

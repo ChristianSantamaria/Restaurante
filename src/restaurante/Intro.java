@@ -176,7 +176,7 @@ public class Intro extends javax.swing.JFrame {
             public void run() {
                 new Intro().setVisible(true);
                 try {
-                    conexion = new BaseDatos("jdbc:sqlite:/home/local/DANIELCASTELAO/klemavilanova/Escritorio/Restaurante.db");
+                    conexion = new BaseDatos("jdbc:sqlite:C:\\Users\\christian\\Desktop\\CDTwitter\\Restaurante.db");
                     conexion.crearTabla();
                 } catch (SQLException ex) {}
             }

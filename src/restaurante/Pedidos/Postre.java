@@ -2,6 +2,7 @@ package restaurante.Pedidos;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
@@ -308,8 +309,10 @@ public class Postre extends javax.swing.JInternalFrame {
         }
         Principal.TotalPedidos.add(Principal.nuevoPedido);
         Principal.escribirPedidos();
-
+        
         /////////////
+        Date fecha = new Date();
+        Principal.nuevoPedido.setFecha(fecha);
         try {
             Principal.escribirBase(Principal.nuevoPedido);
         } catch (SQLException ex) {

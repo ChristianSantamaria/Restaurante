@@ -1,10 +1,12 @@
 package restaurante;
 import java.util.ArrayList;
+import java.util.Date;
 import restaurante.Comida;
 
 public class Pedido {
     int n_pedido;
     int n_mesa;
+    Date fecha;
     ArrayList<Comida> primerPlato = new ArrayList<Comida>();
     ArrayList<Comida> segundoPlato = new ArrayList<Comida>();
     ArrayList<Comida> postre = new ArrayList<Comida>();
@@ -40,9 +42,18 @@ public class Pedido {
     public String toString() {
         return "Pedido{" + "n_mesa=" + n_mesa + ", primerPlato=" + primerPlato + ", segundoPlato=" + segundoPlato + ", postre=" + postre + ", bebida=" + bebida + ", precioPedido=" + precioPedido + '}';
     }  
-
+    
+    
     ///////////////////////////////////////////////Setters y Getters////////////////////////////////////////////////////////
-    public int getN_pedido() {    
+    public Date getFecha() {    
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;    
+    }
+
+    public int getN_pedido() {
         return n_pedido;
     }
     
