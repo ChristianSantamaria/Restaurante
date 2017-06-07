@@ -36,7 +36,7 @@ public class BaseDatos {
                     + "(NPedido integer PRIMARY KEY, "
                     + "NMesa integer, "
                     + "Precio integer,"
-                    + "Fecha data)");
+                    + "Fecha date)");
         } catch (SQLException ex) {
             System.out.println("Tabla PEDIDOS ya creada");
         }
@@ -129,6 +129,22 @@ public class BaseDatos {
             posicion = rs.getInt("Numero") + 1;
         }
         return posicion;
+    }
+
+    public void borrar(int numP) throws SQLException {
+        Statement stmt = conex.createStatement();
+        String qry1 = "DELETE FROM PEDIDOS WHERE NPedido = " + numP;
+        String qry2 = "DELETE FROM PP WHERE NPedido = " + numP;
+        String qry3 = "DELETE FROM SP WHERE NPedido = " + numP;
+        String qry4 = "DELETE FROM BEBIDA WHERE NPedido = " + numP;
+        String qry5 = "DELETE FROM POSTRE WHERE NPedido = " + numP;
+        stmt.execute(qry1);
+        stmt.execute(qry2);
+        stmt.execute(qry3);
+        stmt.execute(qry4);
+        stmt.execute(qry5);
+
+
     }
 
 }

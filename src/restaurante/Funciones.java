@@ -6,7 +6,7 @@ import restaurante.Pedidos.PrimerPlato;
 import restaurante.*;
 
 public class Funciones {
-
+    
     public void seleccionarProducto(Comida comida, DefaultListModel modelo) {
         int aux = 0;
         if (Principal.lista.size() > 0) {

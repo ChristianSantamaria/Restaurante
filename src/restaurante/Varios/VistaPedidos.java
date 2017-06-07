@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import restaurante.Intro;
 import static restaurante.Intro.conexion;
 
 /**
@@ -23,6 +24,8 @@ public class VistaPedidos extends javax.swing.JInternalFrame {
 
     public VistaPedidos() {
         initComponents();
+        model = (DefaultTableModel) jTable1.getModel();
+        model2 = (DefaultTableModel) jTable2.getModel();
         try {
             this.cargarTabla();
         } catch (SQLException ex) {
@@ -47,6 +50,8 @@ public class VistaPedidos extends javax.swing.JInternalFrame {
         jTable2 = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(900, 780));
 
@@ -84,6 +89,22 @@ public class VistaPedidos extends javax.swing.JInternalFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 330, -1));
 
+        jButton1.setText("Delete");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 610, -1, -1));
+
+        jButton2.setText("Atras");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 610, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,13 +122,12 @@ public class VistaPedidos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        int nfila = jTable1.getSelectedRow();
-        model2 = (DefaultTableModel) jTable2.getModel();
+        int nfila = (int) model.getValueAt(jTable1.getSelectedRow(), 0);
         model2.getDataVector().removeAllElements();
         ResultSet rs;
         for (int i = 1; i <= 4; i++) {
             try {
-                rs = conexion.selectPlatos(i, nfila+1);
+                rs = conexion.selectPlatos(i, nfila);
                 while (rs.next()) {
                     model2.addRow(new Object[]{rs.getString("NombrePlato"), rs.getInt("Cantidad")});
                 }
@@ -115,16 +135,38 @@ public class VistaPedidos extends javax.swing.JInternalFrame {
                 Logger.getLogger(VistaPedidos.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
-
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int nfila = (int) model.getValueAt(jTable1.getSelectedRow(), 0);
+        try {
+            conexion.borrar(nfila);
+            model2.getDataVector().removeAllElements();
+            model2.addRow(new Object[]{});
+            model.getDataVector().removeAllElements();
+            jTable1.repaint();
+            jTable2.repaint();
+            this.cargarTabla();
+        } catch (SQLException ex) {
+            Logger.getLogger(VistaPedidos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Intro.principal.PanelPrimero.setVisible(false);
+        Intro.principal.PanelPrimero.removeAll();
+        Intro.principal.Panel.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private static javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private static javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }
