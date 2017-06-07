@@ -255,7 +255,7 @@ public class Principal extends javax.swing.JInternalFrame {
         PanelSexto = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(51, 51, 51));
-        setPreferredSize(new java.awt.Dimension(900, 770));
+        setPreferredSize(new java.awt.Dimension(900, 780));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Panel.setBackground(new java.awt.Color(51, 51, 51));
@@ -526,7 +526,7 @@ public class Principal extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_jButton9ActionPerformed
 
 

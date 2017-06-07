@@ -60,7 +60,7 @@ public class SegundoPlato extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(900, 770));
 
         Panel.setBackground(new java.awt.Color(51, 51, 51));
-        Panel.setPreferredSize(new java.awt.Dimension(900, 770));
+        Panel.setPreferredSize(new java.awt.Dimension(900, 780));
         Panel.setRequestFocusEnabled(false);
         Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
