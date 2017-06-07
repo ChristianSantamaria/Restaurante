@@ -107,7 +107,7 @@ public class VistaPedidos extends javax.swing.JInternalFrame {
         ResultSet rs;
         for (int i = 1; i <= 4; i++) {
             try {
-                rs = conexion.selectPlatos(i, nfila);
+                rs = conexion.selectPlatos(i, nfila+1);
                 while (rs.next()) {
                     model2.addRow(new Object[]{rs.getString("NombrePlato"), rs.getInt("Cantidad")});
                 }
