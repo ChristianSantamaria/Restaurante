@@ -30,6 +30,7 @@ public class Intro extends javax.swing.JFrame {
     private void initComponents() {
 
         Panel = new javax.swing.JDesktopPane();
+        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -42,6 +43,8 @@ public class Intro extends javax.swing.JFrame {
 
         Panel.setOpaque(false);
         Panel.setPreferredSize(new java.awt.Dimension(900, 770));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplicacion/Imagenes/cooltext246822995742438.png"))); // NOI18N
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplicacion/Imagenes/FondoVertical.png"))); // NOI18N
 
@@ -64,6 +67,7 @@ public class Intro extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplicacion/Imagenes/Fondo.png"))); // NOI18N
 
+        Panel.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Panel.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Panel.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Panel.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -76,16 +80,23 @@ public class Intro extends javax.swing.JFrame {
         PanelLayout.setHorizontalGroup(
             PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(110, 110, 110)
                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addGroup(PanelLayout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(PanelLayout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PanelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PanelLayout.createSequentialGroup()
+                .addGap(830, 830, 830)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(PanelLayout.createSequentialGroup()
                 .addGap(1, 1, 1)
@@ -94,17 +105,20 @@ public class Intro extends javax.swing.JFrame {
         PanelLayout.setVerticalGroup(
             PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelLayout.createSequentialGroup()
-                .addGap(1, 1, 1)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PanelLayout.createSequentialGroup()
                 .addGap(141, 141, 141)
                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PanelLayout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelLayout.createSequentialGroup()
                         .addGap(140, 140, 140)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(50, 50, 50)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PanelLayout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(PanelLayout.createSequentialGroup()
                 .addGap(1, 1, 1)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -176,6 +190,7 @@ public class Intro extends javax.swing.JFrame {
     public javax.swing.JDesktopPane Panel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
