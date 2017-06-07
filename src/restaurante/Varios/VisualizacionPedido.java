@@ -92,6 +92,7 @@ public class VisualizacionPedido extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         Fondo = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         lbPrecio = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -100,16 +101,16 @@ public class VisualizacionPedido extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         list = new javax.swing.JScrollPane();
         modeloPP=new DefaultListModel();
-        listaPP = new javax.swing.JList<String>();
+        listaPP = new javax.swing.JList<>();
         list1 = new javax.swing.JScrollPane();
         modeloPostre=new DefaultListModel();
-        listaPostre = new javax.swing.JList<String>();
+        listaPostre = new javax.swing.JList<>();
         list4 = new javax.swing.JScrollPane();
         modeloSP=new DefaultListModel();
-        listaPS = new javax.swing.JList<String>();
+        listaPS = new javax.swing.JList<>();
         listaBebida = new javax.swing.JScrollPane();
         modeloBebida=new DefaultListModel();
-        listaPP4 = new javax.swing.JList<String>();
+        listaPP4 = new javax.swing.JList<>();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -121,39 +122,41 @@ public class VisualizacionPedido extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(51, 51, 51));
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         setPreferredSize(new java.awt.Dimension(900, 770));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbPrecio.setFont(new java.awt.Font("MV Boli", 1, 30)); // NOI18N
         lbPrecio.setForeground(new java.awt.Color(255, 255, 255));
         lbPrecio.setText("80€");
         lbPrecio.setEnabled(false);
-        getContentPane().add(lbPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 260, 220, 80));
+        jPanel1.add(lbPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 260, 220, 80));
 
         jLabel5.setFont(new java.awt.Font("MV Boli", 1, 30)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Postre:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 460, 140, 50));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 460, 140, 50));
 
         jLabel3.setFont(new java.awt.Font("MV Boli", 1, 30)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Segundo plato:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 290, 50));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 290, 50));
 
         jLabel2.setFont(new java.awt.Font("MV Boli", 1, 30)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Primer plato:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 240, 50));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 240, 50));
 
         lbNumM.setFont(new java.awt.Font("MV Boli", 1, 24)); // NOI18N
         lbNumM.setForeground(new java.awt.Color(255, 255, 255));
         lbNumM.setText("9");
         lbNumM.setEnabled(false);
-        getContentPane().add(lbNumM, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 130, 50));
+        jPanel1.add(lbNumM, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 130, 50));
 
         jLabel6.setFont(new java.awt.Font("MV Boli", 1, 30)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Mesa: ");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 130, 50));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 130, 50));
 
         list.setBorder(null);
 
@@ -165,7 +168,7 @@ public class VisualizacionPedido extends javax.swing.JInternalFrame {
         listaPP.setFocusable(false);
         list.setViewportView(listaPP);
 
-        getContentPane().add(list, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 300, 190));
+        jPanel1.add(list, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 300, 190));
 
         list1.setBorder(null);
 
@@ -177,7 +180,7 @@ public class VisualizacionPedido extends javax.swing.JInternalFrame {
         listaPostre.setFocusable(false);
         list1.setViewportView(listaPostre);
 
-        getContentPane().add(list1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 510, 270, 190));
+        jPanel1.add(list1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 510, 270, 190));
 
         list4.setBorder(null);
 
@@ -189,7 +192,7 @@ public class VisualizacionPedido extends javax.swing.JInternalFrame {
         listaPS.setFocusable(false);
         list4.setViewportView(listaPS);
 
-        getContentPane().add(list4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 300, 190));
+        jPanel1.add(list4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 300, 190));
 
         listaBebida.setBorder(null);
 
@@ -201,17 +204,17 @@ public class VisualizacionPedido extends javax.swing.JInternalFrame {
         listaPP4.setFocusable(false);
         listaBebida.setViewportView(listaPP4);
 
-        getContentPane().add(listaBebida, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, 270, 190));
+        jPanel1.add(listaBebida, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, 270, 190));
 
         jLabel7.setFont(new java.awt.Font("MV Boli", 1, 30)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Bebida:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, 140, 50));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, 140, 50));
 
         jLabel8.setFont(new java.awt.Font("MV Boli", 1, 30)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Precio:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 220, 140, 50));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 220, 140, 50));
 
         jButton1.setFont(new java.awt.Font("MV Boli", 1, 24)); // NOI18N
         jButton1.setText("Atrás");
@@ -223,7 +226,7 @@ public class VisualizacionPedido extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 440, 140, 60));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 440, 140, 60));
 
         jButton2.setFont(new java.awt.Font("MV Boli", 1, 24)); // NOI18N
         jButton2.setText("Cobrar");
@@ -235,10 +238,21 @@ public class VisualizacionPedido extends javax.swing.JInternalFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 360, 140, 60));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 360, 140, 60));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplicacion/Mesas/VisualizarPedidos/InformacionDelPedido.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 830, 90));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 830, 90));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 989, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -280,6 +294,7 @@ public class VisualizacionPedido extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbNumM;
     private javax.swing.JLabel lbPrecio;
     private javax.swing.JScrollPane list;
