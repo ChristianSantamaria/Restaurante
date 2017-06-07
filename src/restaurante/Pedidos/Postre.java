@@ -1,6 +1,9 @@
 package restaurante.Pedidos;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
@@ -311,8 +314,10 @@ public class Postre extends javax.swing.JInternalFrame {
         Principal.escribirPedidos();
         
         /////////////
-        Date fecha = new Date();
-        Principal.nuevoPedido.setFecha(fecha);
+        java.sql.Date sqlDate;
+        LocalDate apptDay = LocalDate.now();
+        sqlDate = java.sql.Date.valueOf(apptDay);
+        Principal.nuevoPedido.setFecha(sqlDate);
         try {
             Principal.escribirBase(Principal.nuevoPedido);
         } catch (SQLException ex) {
